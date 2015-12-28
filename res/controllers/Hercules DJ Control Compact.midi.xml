@@ -26,7 +26,7 @@
                 <status>0xB0</status>
                 <midino>0x30</midino>
                 <group>[Channel1]</group>
-                <key>HerculesDJCCompact.jogWheel</key>
+                <key>HerculesDJCCompact.wheelTurn</key>
                 <options>
                     <Script-Binding/>
                 </options>
@@ -220,7 +220,7 @@
                 <status>0xB0</status>
                 <midino>0x31</midino>
                 <group>[Channel2]</group>
-                <key>HerculesDJCCompact.jogWheel</key>
+                <key>HerculesDJCCompact.wheelTurn</key>
                 <options>
                     <Script-Binding/>
                 </options>
