@@ -16,7 +16,7 @@ HerculesDJCCompact.LEDOn = 0x7F;
 HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.AllLED = "Bx7F";
 
-HerculesDJCCompact.timerID; //timer 
+HerculesDJCCompact.timerIds = []; //timer
 HerculesDJCCompact.scratchTimeout = 1000; //in ms
 //all controls 9x01 - 9x56 (1 to 86)
 
@@ -34,12 +34,12 @@ HerculesDJCCompact.shutdown = function (id) {
     for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
 };
 
-// The wheel that actually controls the scratching
 HerculesDJCCompact.wheelTurn = function (channel, control, value, status, group) {
-    print(group);
-    if (!engine.isScratching(1)) {
+    var deck = HerculesDJCCompact.deck(group);
+
+    if (!engine.isScratching(deck)) {
         engine.scratchEnable(
-            1,
+            deck,
             128,
             HerculesDJCCompact.standardRpm,
             HerculesDJCCompact.alpha,
@@ -49,25 +49,32 @@ HerculesDJCCompact.wheelTurn = function (channel, control, value, status, group)
     }
 
     var newValue;
-    if (value-64 > 0) newValue = value-128;
-    else newValue = value;
+    if (value-64 > 0) {
+        newValue = value-128;
+    } else {
+        newValue = value;
+    }
 
-    // In either case, register the movement
-    engine.scratchTick(1,newValue);
+    engine.scratchTick(deck,newValue);
 
-    engine.stopTimer(HerculesDJCCompact.timerID);
-    HerculesDJCCompact.timerID = engine.beginTimer(
-        HerculesDJCCompact.scratchTimeout, 
-        "HerculesDJCCompact.scratchDisable(1)", 
-        true
-    );
+    if (HerculesDJCCompact.timerIds[deck]) {
+        engine.stopTimer(HerculesDJCCompact.timerIds[deck]);
+    }
+
+    if (deck != 0) {
+        HerculesDJCCompact.timerIds[deck] = engine.beginTimer(
+            HerculesDJCCompact.scratchTimeout,
+            "HerculesDJCCompact.scratchDisable(" + deck + ")",
+            true
+        );
+    }
 }
 
 HerculesDJCCompact.scratchDisable = function (deck) {
     engine.scratchDisable(deck);
 }
 
-HerculesDJCCompact.deck=function(group){
-    var deck = /^[Channel(\d+)]$/.exec(group);
-    return (deck && deck[1]) ? deck[1] : 0;
+HerculesDJCCompact.deck = function(group) {
+    var deck = /^\[Channel(\d+)/.exec(group);
+    return (deck && deck[1]) ? parseInt(deck[1],10) : 0;
 }
