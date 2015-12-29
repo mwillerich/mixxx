@@ -23,7 +23,8 @@ HerculesDJCCompact.LEDOn = 0x7F;
 HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.AllLED = "Bx7F";
 
-//all controls 9x01 - 9x56
+HerculesDJCCompact.timer = 0;
+//all controls 9x01 - 9x56 (1 to 86)
 
 
 HerculesDJCCompact.init = function (id) {
@@ -32,8 +33,9 @@ HerculesDJCCompact.init = function (id) {
 
 	var alpha = 1.0/8;
     var beta = alpha/32;
-    engine.scratchEnable(1, 128, 33+1/3, alpha, beta);
-    //engine.scratchEnable(2, 128, 33+1/3, alpha, beta);
+    //print("debugging");
+    //engine.scratchEnable(1, 128, 33+1/3, alpha, beta);
+    engine.scratchEnable(2, 128, 33+1/3, alpha, beta);
 };
 
 HerculesDJCCompact.shutdown = function (id) {
@@ -45,8 +47,15 @@ HerculesDJCCompact.shutdown = function (id) {
 
 // The wheel that actually controls the scratching
 HerculesDJCCompact.wheelTurn = function (channel, control, value, status) {
+	print("HerculesDJCCompact.wheelTurn");
     // See if we're scratching. If not, skip this.
-    if (!engine.isScratching(1)) return;
+    if (!engine.isScratching(1)) {
+    	print("not scratching");
+    	print("and now:" + engine.scratchEnable(1, 128, 33+1/3, HerculesDJCCompact.alpha, HerculesDJCCompact.beta));
+    	return;
+    } else {
+    	print("apparently scratching");
+    }
 
     var newValue;
     if (value-64 > 0) newValue = value-128;
@@ -54,4 +63,10 @@ HerculesDJCCompact.wheelTurn = function (channel, control, value, status) {
 
     // In either case, register the movement
     engine.scratchTick(1,newValue);
+    engine.stopTimer(HerculesDJCCompact.timer);
+    HerculesDJCCompact.timer = engine.beginTimer(1000, "HerculesDJCCompact.scratchDisable(1)", true);
+}
+
+HerculesDJCCompact.scratchDisable = function (deck) {
+	engine.scratchDisable(deck);
 }
