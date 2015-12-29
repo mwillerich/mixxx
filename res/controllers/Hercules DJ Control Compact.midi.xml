@@ -374,7 +374,7 @@
             <!-- END loops -->
             <!-- Filter and Deck Volume -->
             <control>
-                <group>[Channel1]</group>
+                <group>[Channel2]</group>
                 <key>volume</key>
                 <status>0xB0</status>
                 <midino>0x3D</midino>
