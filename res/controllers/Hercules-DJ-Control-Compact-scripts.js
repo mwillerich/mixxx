@@ -2,7 +2,6 @@ function HerculesDJCCompact () {}
 
 //based on Hercules Mk4 scripts from Dj Kork
 
-
 // Number of the standard RPM value. Lower values increase de sensitivity as the really records.
 HerculesDJCCompact.standardRpm = 33.33;
 
@@ -12,49 +11,41 @@ HerculesDJCCompact.alpha = 1/8;
 // The HerculesDJCCompact.beta value for the filter (start with HerculesDJCCompact.alpha/32 and tune from there)
 HerculesDJCCompact.beta = HerculesDJCCompact.alpha/20;
 
-HerculesDJCCompact.scratchButton = 0;
-HerculesDJCCompact.scratchMode =[0,0];
-HerculesDJCCompact.antiguoMixCue=1;
-HerculesDJCCompact.sensivityPitch=[5,5];
-HerculesDJCCompact.jogFastPosition=[0,0];
-
 HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.LEDOn = 0x7F;
 HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.AllLED = "Bx7F";
 
-HerculesDJCCompact.timer = 0;
+HerculesDJCCompact.timerID; //timer 
+HerculesDJCCompact.scratchTimeout = 1000; //in ms
 //all controls 9x01 - 9x56 (1 to 86)
 
 
 HerculesDJCCompact.init = function (id) {
-	// Switch off all LEDs
-	for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
+    // Switch off all LEDs
+    for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
 
-	var alpha = 1.0/8;
+    var alpha = 1.0/8;
     var beta = alpha/32;
-    //print("debugging");
-    //engine.scratchEnable(1, 128, 33+1/3, alpha, beta);
-    engine.scratchEnable(2, 128, 33+1/3, alpha, beta);
 };
 
 HerculesDJCCompact.shutdown = function (id) {
-	// Switch off all LEDs
-	for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
-	engine.scratchDisable(1);
-	engine.scratchDisable(2);
+    // Switch off all LEDs
+    for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
 };
 
 // The wheel that actually controls the scratching
-HerculesDJCCompact.wheelTurn = function (channel, control, value, status) {
-	print("HerculesDJCCompact.wheelTurn");
-    // See if we're scratching. If not, skip this.
+HerculesDJCCompact.wheelTurn = function (channel, control, value, status, group) {
+    print(group);
     if (!engine.isScratching(1)) {
-    	print("not scratching");
-    	print("and now:" + engine.scratchEnable(1, 128, 33+1/3, HerculesDJCCompact.alpha, HerculesDJCCompact.beta));
-    	return;
-    } else {
-    	print("apparently scratching");
+        engine.scratchEnable(
+            1,
+            128,
+            HerculesDJCCompact.standardRpm,
+            HerculesDJCCompact.alpha,
+            HerculesDJCCompact.beta
+        );
+        return;
     }
 
     var newValue;
@@ -63,10 +54,20 @@ HerculesDJCCompact.wheelTurn = function (channel, control, value, status) {
 
     // In either case, register the movement
     engine.scratchTick(1,newValue);
-    engine.stopTimer(HerculesDJCCompact.timer);
-    HerculesDJCCompact.timer = engine.beginTimer(1000, "HerculesDJCCompact.scratchDisable(1)", true);
+
+    engine.stopTimer(HerculesDJCCompact.timerID);
+    HerculesDJCCompact.timerID = engine.beginTimer(
+        HerculesDJCCompact.scratchTimeout, 
+        "HerculesDJCCompact.scratchDisable(1)", 
+        true
+    );
 }
 
 HerculesDJCCompact.scratchDisable = function (deck) {
-	engine.scratchDisable(deck);
+    engine.scratchDisable(deck);
+}
+
+HerculesDJCCompact.deck=function(group){
+    var deck = /^[Channel(\d+)]$/.exec(group);
+    return (deck && deck[1]) ? deck[1] : 0;
 }
