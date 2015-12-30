@@ -182,6 +182,46 @@
                     <normal/>
                 </options>
             </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_in</key>
+                <description>Sets the player loop in position to the current play position.</description>
+                <status>0x90</status>
+                <midino>0x1D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_out</key>
+                <description>Sets the player loop out position to the current play position.</description>
+                <status>0x90</status>
+                <midino>0x1E</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_halve</key>
+                <description>Halves the current loop's length by moving the end marker. Player immediately loops if past the new endpoint.</description>
+                <status>0x90</status>
+                <midino>0x1F</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_double</key>
+                <description>Doubles the current loop's length by moving the end marker.</description>
+                <status>0x90</status>
+                <midino>0x20</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
             <!-- END loops -->
             <!-- Filter and Deck Volume -->
             <control>
@@ -367,6 +407,46 @@
                 <description>MIDI Learned from 64 messages.</description>
                 <status>0x90</status>
                 <midino>0x4C</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_in</key>
+                <description>Sets the player loop in position to the current play position.</description>
+                <status>0x90</status>
+                <midino>0x4D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_out</key>
+                <description>Sets the player loop out position to the current play position.</description>
+                <status>0x90</status>
+                <midino>0x4E</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_halve</key>
+                <description>Halves the current loop's length by moving the end marker. Player immediately loops if past the new endpoint.</description>
+                <status>0x90</status>
+                <midino>0x4F</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_double</key>
+                <description>Doubles the current loop's length by moving the end marker.</description>
+                <status>0x90</status>
+                <midino>0x50</midino>
                 <options>
                     <normal/>
                 </options>
