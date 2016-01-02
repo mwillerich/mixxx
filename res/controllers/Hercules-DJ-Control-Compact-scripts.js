@@ -13,7 +13,6 @@ HerculesDJCCompact.beta = HerculesDJCCompact.alpha/20;
 
 HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.LEDOn = 0x7F;
-HerculesDJCCompact.LEDOff = 0x00;
 HerculesDJCCompact.AllLED = "Bx7F";
 
 HerculesDJCCompact.timerIds = []; //timer
@@ -23,7 +22,8 @@ HerculesDJCCompact.scratchTimeout = 1000; //in ms
 
 HerculesDJCCompact.init = function (id) {
     // Switch off all LEDs
-    for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
+    for (var i=1; i<=86; i++) midi.sendShortMsg(0x90, i, HerculesDJCCompact.LEDOff);
+    midi.sendShortMsg(0x90, 84, HerculesDJCCompact.LEDOn);
 
     var alpha = 1.0/8;
     var beta = alpha/32;
@@ -31,7 +31,7 @@ HerculesDJCCompact.init = function (id) {
 
 HerculesDJCCompact.shutdown = function (id) {
     // Switch off all LEDs
-    for (var i=1; i<95; i++) midi.sendShortMsg(0x90, i, 0x00);
+    for (var i=1; i<=86; i++) midi.sendShortMsg(0x90, i, HerculesDJCCompact.LEDOff);
 };
 
 HerculesDJCCompact.wheelTurn = function (channel, control, value, status, group) {
@@ -71,7 +71,7 @@ HerculesDJCCompact.wheelTurn = function (channel, control, value, status, group)
 }
 
 HerculesDJCCompact.scratchDisable = function (deck) {
-    engine.scratchDisable(deck);
+    engine.scratchDisable(deck, true);
 }
 
 HerculesDJCCompact.deck = function(group) {

@@ -145,7 +145,6 @@
             <control>
                 <group>[Channel1]</group>
                 <key>beatloop_1_toggle</key>
-                <description>MIDI Learned from 50 messages.</description>
                 <status>0x90</status>
                 <midino>0x19</midino>
                 <options>
@@ -155,7 +154,6 @@
             <control>
                 <group>[Channel1]</group>
                 <key>beatloop_2_toggle</key>
-                <description>MIDI Learned from 24 messages.</description>
                 <status>0x90</status>
                 <midino>0x1A</midino>
                 <options>
@@ -165,7 +163,6 @@
             <control>
                 <group>[Channel1]</group>
                 <key>beatloop_4_toggle</key>
-                <description>MIDI Learned from 36 messages.</description>
                 <status>0x90</status>
                 <midino>0x1B</midino>
                 <options>
@@ -175,7 +172,6 @@
             <control>
                 <group>[Channel1]</group>
                 <key>beatloop_8_toggle</key>
-                <description>MIDI Learned from 40 messages.</description>
                 <status>0x90</status>
                 <midino>0x1C</midino>
                 <options>
@@ -334,7 +330,6 @@
             <control>
                 <group>[Channel2]</group>
                 <key>beatloop_1_toggle</key>
-                <description>MIDI Learned from 40 messages.</description>
                 <status>0x90</status>
                 <midino>0x49</midino>
                 <options>
@@ -344,7 +339,6 @@
             <control>
                 <group>[Channel2]</group>
                 <key>beatloop_2_toggle</key>
-                <description>MIDI Learned from 48 messages.</description>
                 <status>0x90</status>
                 <midino>0x4A</midino>
                 <options>
@@ -354,7 +348,6 @@
             <control>
                 <group>[Channel2]</group>
                 <key>beatloop_4_toggle</key>
-                <description>MIDI Learned from 56 messages.</description>
                 <status>0x90</status>
                 <midino>0x4B</midino>
                 <options>
@@ -364,7 +357,6 @@
             <control>
                 <group>[Channel2]</group>
                 <key>beatloop_8_toggle</key>
-                <description>MIDI Learned from 64 messages.</description>
                 <status>0x90</status>
                 <midino>0x4C</midino>
                 <options>
@@ -404,6 +396,261 @@
             </control>
             <!-- END Filter and Deck Volume -->
         </controls>
-        <outputs/>
+        <outputs>
+<!-- Channel1 Channel1 Channel1 Channel1 Channel1 Channel1 Channel1 Channel1 -->
+            <!-- 3 Buttons -->
+            <output>
+                <group>[Channel1]</group>
+                <key>play</key>
+                <status>0x90</status>
+                <midino>0x21</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>cue_default</key>
+                <status>0x90</status>
+                <midino>0x22</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>sync_enabled</key>
+                <status>0x90</status>
+                <midino>0x23</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END 3 Buttons -->
+            <!-- hotcues -->
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_1_enabled</key>
+                <status>0x90</status>
+                <midino>0x01</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_2_enabled</key>
+                <status>0x90</status>
+                <midino>0x02</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_3_enabled</key>
+                <status>0x90</status>
+                <midino>0x03</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_4_enabled</key>
+                <status>0x90</status>
+                <midino>0x04</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_1_clear</key>
+                <status>0x90</status>
+                <midino>0x05</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_2_clear</key>
+                <status>0x90</status>
+                <midino>0x06</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_3_clear</key>
+                <status>0x90</status>
+                <midino>0x07</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>hotcue_4_clear</key>
+                <status>0x90</status>
+                <midino>0x08</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END hotcues -->
+            <!-- loops -->
+            <output>
+                <group>[Channel1]</group>
+                <key>beatloop_1_enabled</key>
+                <status>0x90</status>
+                <midino>0x19</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>beatloop_2_enabled</key>
+                <status>0x90</status>
+                <midino>0x1A</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>beatloop_4_enabled</key>
+                <status>0x90</status>
+                <midino>0x1B</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>beatloop_8_enabled</key>
+                <status>0x90</status>
+                <midino>0x1C</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END loops -->
+<!-- Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 -->
+            <!-- 3 Buttons -->
+            <output>
+                <group>[Channel2]</group>
+                <key>play</key>
+                <status>0x90</status>
+                <midino>0x51</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>cue_default</key>
+                <status>0x90</status>
+                <midino>0x52</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>sync_enabled</key>
+                <status>0x90</status>
+                <midino>0x53</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END 3 Buttons -->
+            <!-- hotcues -->
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_1_enabled</key>
+                <status>0x90</status>
+                <midino>0x31</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_2_enabled</key>
+                <status>0x90</status>
+                <midino>0x32</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_3_enabled</key>
+                <status>0x90</status>
+                <midino>0x33</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_4_enabled</key>
+                <status>0x90</status>
+                <midino>0x34</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_1_clear</key>
+                <status>0x90</status>
+                <midino>0x35</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_2_clear</key>
+                <status>0x90</status>
+                <midino>0x36</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_3_clear</key>
+                <status>0x90</status>
+                <midino>0x37</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>hotcue_4_clear</key>
+                <status>0x90</status>
+                <midino>0x38</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END hotcues -->
+            <!-- loops -->
+            <output>
+                <group>[Channel2]</group>
+                <key>beatloop_1_enabled</key>
+                <status>0x90</status>
+                <midino>0x49</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>beatloop_2_enabled</key>
+                <status>0x90</status>
+                <midino>0x4A</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>beatloop_4_enabled</key>
+                <status>0x90</status>
+                <midino>0x4B</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>beatloop_8_enabled</key>
+                <status>0x90</status>
+                <midino>0x4C</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END loops -->
+        </outputs>
     </controller>
 </MixxxControllerPreset>
