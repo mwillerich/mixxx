@@ -608,6 +608,40 @@
                 <maximum>1</maximum>
             </output>
             <!-- END loops -->
+            <!-- Effect Rack -->
+            <output>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel1]_enable</key>
+                <status>0x90</status>
+                <midino>0x09</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel1]_enable</key>
+                <status>0x90</status>
+                <midino>0x0A</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel1]_enable</key>
+                <status>0x90</status>
+                <midino>0x0B</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel1]_enable</key>
+                <status>0x90</status>
+                <midino>0x0C</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END Effect Rack -->
 <!-- Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 Channel2 -->
             <!-- 3 Buttons -->
             <output>
@@ -735,6 +769,40 @@
                 <maximum>1</maximum>
             </output>
             <!-- END loops -->
+            <!-- Effect Rack -->
+            <output>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>group_[Channel2]_enable</key>
+                <status>0x90</status>
+                <midino>0x39</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit2]</group>
+                <key>group_[Channel2]_enable</key>
+                <status>0x90</status>
+                <midino>0x3A</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit3]</group>
+                <key>group_[Channel2]_enable</key>
+                <status>0x90</status>
+                <midino>0x3B</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <output>
+                <group>[EffectRack1_EffectUnit4]</group>
+                <key>group_[Channel2]_enable</key>
+                <status>0x90</status>
+                <midino>0x3C</midino>
+                <minimum>0.5</minimum>
+                <maximum>1</maximum>
+            </output>
+            <!-- END Effect Rack -->
         </outputs>
     </controller>
 </MixxxControllerPreset>
