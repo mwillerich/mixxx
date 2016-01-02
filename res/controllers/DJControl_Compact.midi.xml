@@ -541,9 +541,10 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
             </output>
+            <!-- as long as the hotcue is enabled, the lights should be on, both when shift is pressed and when it is not. -->
             <output>
                 <group>[Channel1]</group>
-                <key>hotcue_1_clear</key>
+                <key>hotcue_1_enabled</key>
                 <status>0x90</status>
                 <midino>0x05</midino>
                 <minimum>0.5</minimum>
@@ -551,7 +552,7 @@
             </output>
             <output>
                 <group>[Channel1]</group>
-                <key>hotcue_2_clear</key>
+                <key>hotcue_2_enabled</key>
                 <status>0x90</status>
                 <midino>0x06</midino>
                 <minimum>0.5</minimum>
@@ -559,7 +560,7 @@
             </output>
             <output>
                 <group>[Channel1]</group>
-                <key>hotcue_3_clear</key>
+                <key>hotcue_3_enabled</key>
                 <status>0x90</status>
                 <midino>0x07</midino>
                 <minimum>0.5</minimum>
@@ -567,7 +568,7 @@
             </output>
             <output>
                 <group>[Channel1]</group>
-                <key>hotcue_4_clear</key>
+                <key>hotcue_4_enabled</key>
                 <status>0x90</status>
                 <midino>0x08</midino>
                 <minimum>0.5</minimum>
@@ -702,9 +703,10 @@
                 <minimum>0.5</minimum>
                 <maximum>1</maximum>
             </output>
+            <!-- as long as the hotcue is enabled, the lights should be on, both when shift is pressed and when it is not. -->
             <output>
                 <group>[Channel2]</group>
-                <key>hotcue_1_clear</key>
+                <key>hotcue_1_enabled</key>
                 <status>0x90</status>
                 <midino>0x35</midino>
                 <minimum>0.5</minimum>
@@ -712,7 +714,7 @@
             </output>
             <output>
                 <group>[Channel2]</group>
-                <key>hotcue_2_clear</key>
+                <key>hotcue_2_enabled</key>
                 <status>0x90</status>
                 <midino>0x36</midino>
                 <minimum>0.5</minimum>
@@ -720,7 +722,7 @@
             </output>
             <output>
                 <group>[Channel2]</group>
-                <key>hotcue_3_clear</key>
+                <key>hotcue_3_enabled</key>
                 <status>0x90</status>
                 <midino>0x37</midino>
                 <minimum>0.5</minimum>
@@ -728,7 +730,7 @@
             </output>
             <output>
                 <group>[Channel2]</group>
-                <key>hotcue_4_clear</key>
+                <key>hotcue_4_enabled</key>
                 <status>0x90</status>
                 <midino>0x38</midino>
                 <minimum>0.5</minimum>
